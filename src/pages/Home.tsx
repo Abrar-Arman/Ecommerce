@@ -1,6 +1,7 @@
 import Collection from "@/myComponent/Home/collection/Collection";
 import Contact from "@/myComponent/Home/Contact";
 import Hero from "@/myComponent/Home/hero/Hero";
+import CustomerReviews from "@/myComponent/Home/review/CustomerReviews";
 import Services from "@/myComponent/Home/Services";
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
     <main>
       <Hero />
       <Collection />
+      <CustomerReviews />
       <Services />
       <Contact />
     </main>
