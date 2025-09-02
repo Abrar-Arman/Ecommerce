@@ -139,3 +139,6 @@
 @utility hover{
   @apply hover:text-c-secondary transition-colors duration-300
 }
+@utility product__card {
+  @apply grid mt-8 lg:grid-cols-4 gap-x-2 gap-y-6
+}

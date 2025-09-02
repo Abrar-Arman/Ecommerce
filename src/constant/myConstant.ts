@@ -11,7 +11,7 @@ import imgCollection7 from "../assets/Home/collection/img7.png";
 import imgCollection8 from "../assets/Home/collection/img8.png";
 import imgCollection9 from "../assets/Home/collection/img9.png";
 
-const links = ["Product", "About"];
+const links = ["Products", "About"];
 const collections = [
   { img: imgCollection1, title: "Women Round Neck Cotton Top", price: 149 },
   { img: imgCollection2, title: "Women Round Neck Cotton Top", price: 149 },

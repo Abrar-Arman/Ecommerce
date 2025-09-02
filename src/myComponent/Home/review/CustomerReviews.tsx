@@ -14,8 +14,7 @@ function CustomerReviews() {
             Show More <MoveUpRight className="ml-1 text-c-secondary" />
           </Link>
         </div>
-
-      <ul className="mt-12 grid grid-cols-1 justify-items-center  w-full sm:justify-start sm:w-auto sm:grid-cols-2  lg:grid-cols-3 gap-4">
+      <ul className=" grid grid-cols-1 items-center   min-h-[50vh] justify-items-center sm:justify-items-start  w-full  sm:w-auto sm:grid-cols-2  lg:grid-cols-3 gap-4">
         {customerReviews.map((rev,ind)=><ReviewCard key={ind} rev={rev} ind={ind}/>)}
       </ul>
     </Container>

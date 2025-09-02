@@ -7,7 +7,7 @@ import {
 import useFetchData from "@/hooks/useFetchData";
 import { Link } from "react-router-dom";
 function NavbarCategory() {
-    const {data:category,  isError,isPending}=useFetchData(`${import.meta.env.VITE_API_URL}/products/categories`);
+    const {data:category,  isError,isPending}=useFetchData(`${import.meta.env.VITE_API_URL}/products/categories`,'category');
     if(isPending)
         return  null;
   return (
@@ -17,8 +17,8 @@ function NavbarCategory() {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-4 w-[200px]">
-                {category.slice(0,10).map((cat,ind)=>(<li>
-                  <NavigationMenuLink asChild key={ind}>
+                {category.slice(0,10).map((cat,ind)=>(<li key={ind}>
+                  <NavigationMenuLink asChild >
                     <Link to={`/category/${cat.name}`} className="hover:text-c-secondary">{cat.name}</Link>
                   </NavigationMenuLink>
                 </li>))}

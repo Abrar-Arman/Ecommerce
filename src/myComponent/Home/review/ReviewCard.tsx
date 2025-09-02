@@ -9,7 +9,7 @@ type TReviewCardProps = {
   ind:number;
 };
 function ReviewCard({ rev ,ind}: TReviewCardProps) {
-  return <li className={clsx("border lg:col-span-1 w-[80%] sm:w-auto  border-[#f9f9f9f2] pt-6 py-8 px-2 rounded-md shadow",ind==2 ? 'sm:col-span-2':'col-span-1')}>
+  return <li className={clsx("border lg:col-span-1 min-h-[220px]  w-[80%] sm:w-auto  border-[#f9f9f9f2] pt-6 py-8 px-2 rounded-md shadow",ind==2 ? 'sm:col-span-2':'col-span-1')}>
     <div className="centerFlexLayout gap-0.5">
     {Array.from({length:5},(_,i)=><Star key={i} className="text-yellow-300 " />)}
     </div>

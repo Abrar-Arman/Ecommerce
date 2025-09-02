@@ -3,6 +3,7 @@ import Container from "../../common/Container";
 import { collections } from "@/constant/myConstant";
 import CollectionItem from "./CollectionItem";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 function Collection() {
   return (
     <Container>
@@ -11,7 +12,8 @@ function Collection() {
        {collections.map((item,ind)=><CollectionItem key={ind} collection={item}/>)}
       </div>
       <div className="mt-14 text-center">
-      <Button className="cursor-pointer px-8 py-4 font-medium bg-c-secondary hover:bg-c-secondary text-lg">Show More</Button>
+      <Button className="cursor-pointer px-10 py-6 font-medium bg-c-secondary hover:bg-c-secondary text-lg">
+        <Link to='/products' className="font-Outfit italic">Show More</Link></Button>
       </div>
     </Container>
   );

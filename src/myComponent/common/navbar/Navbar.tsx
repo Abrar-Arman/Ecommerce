@@ -39,7 +39,7 @@ function Navbar() {
               <NavigationMenuItem key={ind}>
                 <NavigationMenuLink asChild>
                   <Link
-                    to={`/${link}`}
+                    to={`/${link.toLowerCase()}`}
                     className="nav-link hover:text-c-secondary hover:bg-transparent"
                   >
                     {link}
