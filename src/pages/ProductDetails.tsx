@@ -1,15 +1,31 @@
-import { Button } from "@/components/ui/button";
+import BackToHome from "@/myComponent/common/BackToHome";
 import Container from "@/myComponent/common/Container";
 import ImageContainer from "@/myComponent/productDetails/ImageContainer";
 import ProductContent from "@/myComponent/productDetails/productContent";
 import ProductReview from "@/myComponent/productDetails/ProductReview";
-import { useLocation } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 function ProductDetails() {
   const location = useLocation();
   console.log(location, "location");
   const product = location.state.product;
   return (
     <Container>
+      <div className="text-[#504F4F] flex gap-2 pt-8 font-Prata ">
+        <Link to="/">
+          <span className="hover">Home</span>
+        </Link>
+        <span>
+          <ArrowRight />
+        </span>
+        <Link to="/products">
+          <span className="hover">All Products</span>
+        </Link>
+         <span>
+          <ArrowRight />
+        </span>
+        <span>{product.title}</span>
+      </div>
       <div className="grid grid-cols-2 gap-2.5 h-[calc(100vh-96px)]   ">
         <ImageContainer main={product.thumbnail} allImage={product.images} />
         <ProductContent
@@ -17,9 +33,12 @@ function ProductDetails() {
           price={product.price}
           tags={product.tags}
           description={product.description}
+          img={product.thumbnail}
+          id={product.id}
+          stock={product.stock}
         />
       </div>
-     <ProductReview review={product.reviews} />
+      <ProductReview review={product.reviews} />
     </Container>
   );
 }

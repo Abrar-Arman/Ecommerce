@@ -3,8 +3,9 @@ import Container from "../../common/Container";
 import { collections } from "@/constant/myConstant";
 import CollectionItem from "./CollectionItem";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Collection() {
+  const navigate=useNavigate()
   return (
     <Container>
       <Title first="Latest" last="Collections" />
@@ -12,8 +13,11 @@ function Collection() {
        {collections.map((item,ind)=><CollectionItem key={ind} collection={item}/>)}
       </div>
       <div className="mt-14 text-center">
-      <Button className="cursor-pointer px-10 py-6 font-medium bg-c-secondary hover:bg-c-secondary text-lg">
-        <Link to='/products' className="font-Outfit italic">Show More</Link></Button>
+      <Button onClick={()=>{
+        navigate('/products');
+         window.scrollTo(0, 0);
+      }} className="cursor-pointer px-10 py-6 font-medium font-Outfit italic bg-c-secondary hover:bg-c-secondary text-lg">
+        Show More</Button>
       </div>
     </Container>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../../common/Container";
 import Title from "../../common/Title";
 import { customerReviews } from "../../../constant/myConstant";

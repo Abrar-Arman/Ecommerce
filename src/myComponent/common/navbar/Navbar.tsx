@@ -11,13 +11,23 @@ import NavbarLogo from "../Logo";
 import NavbarCategory from "./NavbarCategory";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 function Navbar() {
+   const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0); 
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
       <NavigationMenu
         viewport={false}
-        className="px-9 sticky top-0 z-40 justify-between my-5  hidden md:flex font-Outfit text-text-primary "
+        className={clsx('px-9 sticky top-0 border-b-[1px] border-[#ADADAD] z-40 justify-between my-5  hidden md:flex font-Outfit text-text-primary pb-5 pt-1',isScrolled && 'bg-white/90')}
       >
         {/* Logo */}
         <NavbarLogo />

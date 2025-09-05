@@ -6,12 +6,12 @@ function Hero() {
       <div className="w-full flex justify-center ">
         <p>
          <HeroLine text='OUR BESTSELLERS' left={true}/>
-          <span className="text-6xl	font-Prata block my-2">Latest Arrivals</span>
+          <span className="text-6xl	font-Prata block my-4">Latest Arrivals</span>
           <HeroLine text='SHOP NOW' />
         </p>
       </div>
       <div>
-        <img src={hero} alt="hero" width={`{840}px`} />
+        <img src={hero} alt="hero" width={`${900}px`} />
       </div>
     </div>
   );
