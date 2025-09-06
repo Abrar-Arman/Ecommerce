@@ -11,7 +11,7 @@ function Hero() {
         </p>
       </div>
       <div>
-        <img src={hero} alt="hero" width={`${900}px`} />
+        <img src={hero} alt="hero" width={`${980}px`} />
       </div>
     </div>
   );

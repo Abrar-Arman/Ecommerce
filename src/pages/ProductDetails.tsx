@@ -21,12 +21,15 @@ function ProductDetails() {
         <Link to="/products">
           <span className="hover">All Products</span>
         </Link>
-         <span>
+        <span>
           <ArrowRight />
         </span>
         <span>{product.title}</span>
       </div>
-      <div className="grid grid-cols-2 gap-2.5 h-[calc(100vh-96px)]   ">
+      <div
+        className="grid grid-cols-2 gap-2.5 h-[calc(100vh-96px)]  
+   "
+      >
         <ImageContainer main={product.thumbnail} allImage={product.images} />
         <ProductContent
           title={product.title}

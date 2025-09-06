@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useCartContext } from "@/context/CardProvider";
-import { Heart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import Alert from "../common/Alert";
 import Spinner from "../common/Spinner";
@@ -40,7 +40,19 @@ function ProductContent({
   console.log(foundItemOnWishlist, "foundItemOnWishlist");
   const addToLocalStorage = (key: string) => {
     if (key == "cart") {
-      setCart([...cart, { price, title, description, img, id, stock }]);
+      setCart([
+        ...cart,
+        {
+          price,
+          title,
+          description,
+          img,
+          id,
+          stock,
+          quntity: 1,
+          myQuan: stock - 1,
+        },
+      ]);
     } else {
       setWishlist([...wishlist, { price, title, description, img, id, stock }]);
     }
@@ -75,9 +87,15 @@ function ProductContent({
                   ? () => navigate("/cart")
                   : () => addToLocalStorage("cart")
               }
-              className="py-6 w-80 text-base cursor-pointer mr-3 bg-[#707070]"
+              className="py-6 w-80 text-lg cursor-pointer mr-3 bg-[#707070]"
             >
-              {foundItemOnCart ? "Go To Cart" : "Add To Cart"}
+              {foundItemOnCart ? (
+                <span className="flex items-center gap-3 ">
+                  Go To Cart <ShoppingCart className="!w-6 !h-6" />
+                </span>
+              ) : (
+                "Add To Cart"
+              )}
             </Button>
             <Button
               onClick={

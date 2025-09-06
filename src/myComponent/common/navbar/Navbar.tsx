@@ -15,10 +15,10 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 function Navbar() {
-   const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0); 
+      setIsScrolled(window.scrollY > 0);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -27,7 +27,10 @@ function Navbar() {
     <>
       <NavigationMenu
         viewport={false}
-        className={clsx('px-9 sticky top-0 border-b-[1px] border-[#ADADAD] z-40 justify-between my-5  hidden md:flex font-Outfit text-text-primary pb-5 pt-1',isScrolled && 'bg-white/90')}
+        className={clsx(
+          "px-9 sticky top-0 border-b-[1px] border-[#ADADAD] z-40 justify-between my-5  hidden md:flex font-Outfit text-text-primary pb-5 pt-1",
+          isScrolled && "bg-white/90"
+        )}
       >
         {/* Logo */}
         <NavbarLogo />
@@ -38,7 +41,8 @@ function Navbar() {
               <NavigationMenuLink asChild>
                 <Link
                   to="/"
-                  className="nav-link hover:text-c-secondary hover:bg-transparent"
+                  className="nav-link !hover:text-c-secondary hover:bg-transparent"
+                  style={{ backgroundColor: "transparent" }}
                 >
                   Home
                 </Link>
@@ -50,7 +54,8 @@ function Navbar() {
                 <NavigationMenuLink asChild>
                   <Link
                     to={`/${link.toLowerCase()}`}
-                    className="nav-link hover:text-c-secondary hover:bg-transparent"
+                    className="nav-link hover:text-c-secondary hover:bg-transparent !data-[active=true]:text-c-secondary"
+                    style={{ backgroundColor: "transparent" }}
                   >
                     {link}
                   </Link>
@@ -91,7 +96,10 @@ function Navbar() {
                 Category
               </Link>
             </nav>
-            <div className="absolute left-0 bottom-0  w-full text-center centerFlexLayout p-5"> <NavbarLogo /></div>
+            <div className="absolute left-0 bottom-0  w-full text-center centerFlexLayout p-5">
+              {" "}
+              <NavbarLogo />
+            </div>
           </SheetContent>
         </Sheet>
       </header>

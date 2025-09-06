@@ -9,6 +9,8 @@ export default function useLocalStorage(key: string) {
     if (state.length > 0) {
       setItem(key, state);
       console.log("save in local ");
+    } else {
+      localStorage.removeItem(key);
     }
   }, [state, key]);
   return [state, setState] as const;

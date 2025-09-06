@@ -1,7 +1,9 @@
 
 function Spinner() {
   return (
-    <div className='h-6 w-6 animate-spin rounded-full border-2 border-muted-foreground border-t-transparent'></div>
+    <div className="h-[90vh] flex items-center justify-center">
+    <div className='h-10 w-10 animate-spin rounded-full border-2 border-[#c586a5] border-t-transparent'></div>
+    </div>
   )
 }
 

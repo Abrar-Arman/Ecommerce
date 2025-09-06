@@ -16,7 +16,7 @@ function Collection() {
       <Button onClick={()=>{
         navigate('/products');
          window.scrollTo(0, 0);
-      }} className="cursor-pointer px-10 py-6 font-medium font-Outfit italic bg-c-secondary hover:bg-c-secondary text-lg">
+      }} className="cursor-pointer px-10 py-6  font-medium font-Outfit italic bg-c-secondary hover:bg-c-secondary text-lg">
         Show More</Button>
       </div>
     </Container>
