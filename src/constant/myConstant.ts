@@ -30,14 +30,15 @@ const customerReviews = [
     review:
       "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”",
   },
-    {
+  {
     name: "Alex K.",
     review:
       "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.”",
   },
-    {
+  {
     name: "James L.",
-    review:"As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.”"
+    review:
+      "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.”",
   },
 ];
 const services = [
@@ -57,5 +58,21 @@ const services = [
     description: "We provide 24/7 customer support",
   },
 ];
-
-export { links, services, collections,customerReviews };
+const feature = [
+  {
+    name: "Quality Assurance",
+    description:
+      "We meticulously select and vet each product to ensure it meets our stringent quality standards.",
+  },
+  {
+    name: "Convenience",
+    description:
+      "With our user-friendly interface and hassle-free ordering process, shopping has never been easier.",
+  },
+  {
+    name: "Exceptional Customer Service",
+    description:
+      "Our team of dedicated professionals is here to assist you the way, ensuring your satisfaction is our top priority.",
+  },
+];
+export { links, services, collections, customerReviews, feature };

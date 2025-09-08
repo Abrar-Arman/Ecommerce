@@ -14,7 +14,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 
+
 function Navbar() {
+  
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +30,7 @@ function Navbar() {
       <NavigationMenu
         viewport={false}
         className={clsx(
-          "px-9 sticky top-0 border-b-[1px] border-[#ADADAD] z-40 justify-between my-5  hidden md:flex font-Outfit text-text-primary pb-5 pt-1",
+          "nav-header  justify-between !py-4  hidden sticky top-0  md:flex font-Outfit text-text-primary pb-5 pt-1",
           isScrolled && "bg-white/90"
         )}
       >
@@ -66,7 +68,7 @@ function Navbar() {
         </div>
         <NavbarIcon />
       </NavigationMenu>
-      <header className="flex justify-between my-5 px-9 md:hidden">
+      <header className={clsx("md:hidden py-4  nav-header flex  sticky top-0  justify-between",isScrolled && "bg-white/90")}>
         <NavbarLogo />
         <Sheet className="block md:hidden  ">
           <SheetTrigger asChild>
@@ -94,6 +96,18 @@ function Navbar() {
                 className="nav-link hover:text-c-secondary hover:bg-transparent"
               >
                 Category
+              </Link>
+               <Link
+                to="/cart"
+                className="nav-link hover:text-c-secondary hover:bg-transparent"
+              >
+                Cart
+              </Link>
+               <Link
+                to="/wishlist"
+                className="nav-link hover:text-c-secondary hover:bg-transparent"
+              >
+                Wishlist
               </Link>
             </nav>
             <div className="absolute left-0 bottom-0  w-full text-center centerFlexLayout p-5">

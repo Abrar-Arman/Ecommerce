@@ -61,12 +61,13 @@ function ProductContent({
   return (
     <>
       {msg && <Alert msg="Item added Successfully" showMsg={setShowMsg} />}
-      <div className="mt-12 flex flex-col  h-[60vh]  justify-center ">
-        <h2 className="font-medium text-4xl text-[#3D3D3D] mb-6">{title}</h2>
+      <div className="mt-12 flex flex-col  md:min-h-[calc(100vh-140px)]  justify-center  ">
+        <title>{title}</title>
+        <h2 className="font-medium text-2xl sm:text-3xl lg:text-4xl text-[#3D3D3D] mb-6">{title}</h2>
         <span className="font-bold text-lg text-[#2A2A2A] italic">
           ${price}
         </span>
-        <p className="text-[#555] text-base text-justify w-[90%] mt-3">
+        <p className="text-[#555] text-md sm:text-base text-justify w-[90%] mt-3">
           {description}
         </p>
         <ul className="flex items-center gap-3 mt-4  h-12">
@@ -87,7 +88,7 @@ function ProductContent({
                   ? () => navigate("/cart")
                   : () => addToLocalStorage("cart")
               }
-              className="py-6 w-80 text-lg cursor-pointer mr-3 bg-[#707070]"
+              className="py-6 px-20  text-lg cursor-pointer mr-3 bg-[#707070]"
             >
               {foundItemOnCart ? (
                 <span className="flex items-center gap-3 ">

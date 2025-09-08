@@ -11,7 +11,7 @@ function ProductDetails() {
   const product = location.state.product;
   return (
     <Container>
-      <div className="text-[#504F4F] flex gap-2 pt-8 font-Prata ">
+      <div className="text-[#504F4F] flex gap-2 pt-8 font-Prata text-xs items-center sm:text-base">
         <Link to="/">
           <span className="hover">Home</span>
         </Link>
@@ -24,10 +24,10 @@ function ProductDetails() {
         <span>
           <ArrowRight />
         </span>
-        <span>{product.title}</span>
+        <span className="hover">{product.title}</span>
       </div>
       <div
-        className="grid grid-cols-2 gap-2.5 h-[calc(100vh-96px)]  
+        className="grid md:grid-cols-2 gap-2.5 md:min-h-[calc(100vh-96px)]  
    "
       >
         <ImageContainer main={product.thumbnail} allImage={product.images} />

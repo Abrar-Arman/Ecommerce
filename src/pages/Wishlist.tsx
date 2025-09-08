@@ -45,7 +45,7 @@ function Wishlist() {
   const renderWishlistItem = (item) => (
     <li
       key={item.id}
-      className="py-2.5 border grid grid-cols-3 items-center  border-[#D1D1D1] border-l-transparent border-r-transparent"
+      className="py-2.5 px-3 border grid grid-cols-3 items-center  border-[#D1D1D1] border-l-transparent border-r-transparent"
     >
       <div className="flex gap-2 items-center">
         <img src={item.img} alt={item.title} className="w-22 h-22" />
@@ -81,12 +81,15 @@ function Wishlist() {
       />
     );
   return (
+    <>
+    <title>My Wishlist</title>
     <Container>
       <div className="h-[70vh]">
         <CartTitle first="My" last="Wishlist" />
         <ItemList render={renderWishlistItem} data={wishlist} />
       </div>
     </Container>
+    </>
   );
 }
 

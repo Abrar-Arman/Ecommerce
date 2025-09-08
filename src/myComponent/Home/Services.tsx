@@ -9,7 +9,7 @@ function Services() {
         {services.map((service, ind) => (
           <Card
             key={ind}
-            className="flex flex-col items-center justify-center cursor-pointer p-6 shadow-md border rounded-2xl"
+            className="flex flex-col items-center justify-center hover:scale-[1.08] transition duration-300 cursor-pointer p-6 shadow-md border rounded-2xl"
           >
             <img
               src={service.img}

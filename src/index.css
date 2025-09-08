@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -40,12 +40,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-custom-color:var(--custom-color);
+  --color-custom-color: var(--custom-color);
   --font-Outfit: "Outfit", sans-serif;
-  --font-Prata :Prata;
-  --color-text-primary:#2A2A2A;
-  --color-main-bg:#ffdad6;
-  --color-c-secondary:#c586a5
+  --font-Prata: Prata;
+  --color-text-primary: #2a2a2a;
+  --color-main-bg: #ffdad6;
+  --color-c-secondary: #c586a5;
 }
 
 :root {
@@ -81,8 +81,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --custom-color:oklch(29.046% 0.1755 280.237);
-  
+  --custom-color: oklch(29.046% 0.1755 280.237);
 }
 
 .dark {
@@ -119,10 +118,11 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 .custom-scrollbar::-webkit-scrollbar {
-  width: 5px; 
+  width: 5px;
   background-color: #707070;
-  border-radius:3px;
+  border-radius: 3px;
 }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -131,18 +131,30 @@
     @apply bg-background text-foreground font-Outfit;
   }
 }
-@utility centerFlexLayout{
-  @apply flex items-center justify-center
+@utility centerFlexLayout {
+  @apply flex items-center justify-center;
 }
-@utility nav-link{
-  @apply !text-base !font-medium 
+@utility nav-header{
+  @apply  px-4 sm:px-9  border-b-[1px] border-[#ADADAD] z-40
 }
-@utility hero{
-  @apply font-Outfit font-medium text-lg block
+@utility nav-link {
+  @apply !text-base !font-medium;
 }
-@utility hover{
-  @apply hover:text-c-secondary transition-colors duration-300
+@utility nav-icon {
+  @apply w-7 h-7 text-sm text-white font-bold rounded-full bg-c-secondary centerFlexLayout absolute -bottom-4 -right-3 border;
+}
+@utility hero {
+  @apply font-Outfit font-medium text-lg block;
+}
+@utility hero__line {
+  @apply h-[2px] bg-c-secondary flex-1
+}
+@utility hover {
+  @apply hover:text-c-secondary transition-colors duration-300;
 }
 @utility product__card {
-  @apply grid mt-8 lg:grid-cols-4 gap-x-2 gap-y-6
+  @apply grid mt-8 justify-items-center  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8;
+}
+@utility filter__reset {
+  @apply flex items-center gap-2;
 }

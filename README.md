@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# E-Commerce 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📄 Project Overview
 
-Currently, two official plugins are available:
+This is a React-based e-commerce application where users can browse products, add them to a shopping cart or wishlist, and filter/search items. All data for cart and wishlist is stored locally using **localStorage**, making the app fully functional without a backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📂 Project Structure
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+src/
+├── assets/          # Static assets (images, icons, etc.)
+├── components/      # Reusable UI components (Shadcn components)
+├── myComponents/    # Project-specific components built by combining my custom code with Shadcn UI components to create reusable, final components
+├── pages/           # Application pages and views
+├── layouts/         #Layout components for wrapping pages (header, footer)
+├── hooks/           # Custom React hooks for logic reuse
+├── utils/           # Helper functions and utilities
+├── types/           # TypeScript type definitions
+├── my-routes/       # Application routes and route definitions
+├── context/         # React context providers for UI State Management
+├── constant/        # Static constant data (e.g., services, nav links, features)
+├── main.jsx         # Entry point
+└── index.css        # Global Tailwind styles
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## ⚡ Key Features
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Homepage**: Browse products, service and contact section.
+- **Product** : Browse products,filter and search.
+- **Product Details**: Full product info with options to add to Cart or Wishlist.
+- **Shopping Cart**:
+  - Add/remove items and adjust quantities.
+  - Display total price.
+  - Data persisted using **localStorage**.
+- **Wishlist**: Save favorite products and move them to the cart.
+-**About**: Display Story and Features sections
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## ⚡ Performance & Optimization
+
+- **Lazy Loading**: improve initial load time.
+- **React Query**: Handles data fetching with built-in caching, ensuring fast and efficient updates.
+
+## 🖱 User Interaction & Navigation
+- **Sharable URLs**: Users can share filtered product views via unique URLs ```useSearchParam```.
+- **Pagination**: Products are paginated for easier browsing.
+- **Alerts & Dialogs**: Confirmation dialogs and alerts are shown when removing items or performing important actions.

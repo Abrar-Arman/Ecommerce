@@ -16,7 +16,7 @@ function Cart() {
     data: TCartItem[];
     setData: React.Dispatch<React.SetStateAction<TCartItem[]>>;
   };
-  console.log(cart, "cart /////");
+  console.log(cart, "cart page/////");
   const [showMsg, setShowMsg] = useState<boolean>(false);
   const navigate = useNavigate();
 
@@ -36,12 +36,12 @@ function Cart() {
   const renderCartItem = (item) => (
     <li
       key={item.id}
-      className="py-2.5 border grid grid-cols-3 items-center  border-[#D1D1D1] border-l-transparent border-r-transparent"
+      className="py-2.5 border grid grid-cols-4 items-center  border-[#D1D1D1] border-l-transparent border-r-transparent"
     >
-      <div className="flex gap-2 items-center">
+      <div className="flex flex-col sm:flex-row gap-2 items-center col-span-2">
         <img src={item.img} alt={item.title} className="w-22 h-22" />
         <div className="text-[#494949] ">
-          <h3 className="font-medium text-lg">{item.title}</h3>
+          <h3 className="font-medium text-lg hidden lg:block">{item.title}</h3>
           <span>${item.price}</span>
           <span className="block italic ">
             {item.myQuan ?? item.stock - 1} avalible
@@ -68,7 +68,7 @@ function Cart() {
             onClick={() =>
               setCart((pre) => pre.filter((prod) => prod.id != item.id))
             }
-            icon={<Trash2 className="cursor-pointer hover:text-red-500 " />}
+            icon={<Trash2 className="cursor-pointer hover:text-red-500 hover:scale-[1.1] transition duration-200 " />}
             btnText='Delete'
           />
         </div>
@@ -84,6 +84,7 @@ function Cart() {
     );
   return (
     <>
+    <title>My cart</title>
       {showMsg && (
         <Alert
           type="error"

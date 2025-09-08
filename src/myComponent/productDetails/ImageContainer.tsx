@@ -6,8 +6,8 @@ type TImageContainer = {
 function ImageContainer({ main, allImage }: TImageContainer) {
   console.log(main, allImage, "main, allImage");
   return (
-    <div className="grid grid-cols-3 gap-4  mt-12 ">
-      <ul className="grid gap-2 items-center h-[calc(100vh-145px)] custom-scrollbar overflow-y-auto ">
+    <div className="grid grid-cols-3 gap-4  mt-12  ">
+      <ul className="grid gap-2 items-center md:h-[calc(100vh-145px)] custom-scrollbar overflow-y-auto ">
         {allImage.map((img, idx) => (
           <li key={idx} className="pb-3 border-b-2 ">
             <img

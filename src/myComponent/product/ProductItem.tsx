@@ -12,9 +12,8 @@ type TProductItemProps = {
 };
 
 function ProductItem({ title, thumbnail, rating, price,onSelectProduct , product}: TProductItemProps) {
-  console.log(product,'selectedProduct selectedProduct',onSelectProduct)
   return (
-    <li className="shadow pb-4" onClick={onSelectProduct} >
+    <li className="shadow pb-4 hover:scale-[1.05] transition duration-200" onClick={onSelectProduct} >
       <div>
         <img src={thumbnail} alt={title} className="w-full cursor-pointer" />
       </div>
