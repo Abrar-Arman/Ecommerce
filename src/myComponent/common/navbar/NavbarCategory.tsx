@@ -12,7 +12,7 @@ function NavbarCategory() {
         return  null;
   return (
      <NavigationMenuItem className="hover:text-c-secondary hover:bg-transparent">
-            <NavigationMenuTrigger className="nav-link hover:text-c-secondary hover:bg-transparent">
+            <NavigationMenuTrigger className="nav-link uppercase hover:text-c-secondary hover:bg-transparent">
               Category
             </NavigationMenuTrigger>
             <NavigationMenuContent>

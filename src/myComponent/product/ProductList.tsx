@@ -16,7 +16,7 @@ function ProductList({ searchParams, setSearchParams }) {
   const limit = 10;
   const newParams = new URLSearchParams(searchParams);
   const page = Number(searchParams.get("page") ?? 1);
-  const [selectedProduct, setSelectedProduct] = useState<Record<
+  const [, setSelectedProduct] = useState<Record<
     string,
     unknown
   > | null>(null);
@@ -82,7 +82,7 @@ function ProductList({ searchParams, setSearchParams }) {
   const getVisiblePages = () => {
     const visibleCount = 4;
     const start = page;
-    let end = Math.min(page + visibleCount - 1, totalPages);
+    const end = Math.min(page + visibleCount - 1, totalPages);
     const pages = [];
     for (let i = start; i <= end; i++) {
       pages.push(i);
@@ -112,7 +112,6 @@ function ProductList({ searchParams, setSearchParams }) {
         {filteredProducts && filteredProducts.map((prod, ind) => (
           <ProductItem
             key={ind}
-            rating={prod.rating}
             thumbnail={prod.thumbnail}
             title={prod.title}
             price={prod.price}

@@ -25,6 +25,11 @@ function Cart() {
       setShowMsg(true);
       return;
     }
+    if (qa ==0) {
+      setShowMsg(true);
+      return;
+    }
+    
     setCart(
       cart.map((item) =>
         item.id == s.id
@@ -52,6 +57,9 @@ function Cart() {
         <input
           type="number"
           className="border border-[#DFDFDF] px-2 py-1"
+          lang="en"
+          dir="ltr"
+          inputMode="numeric"
           disabled={item.stock == 0}
           min={1}
           max={item.stock}
@@ -68,8 +76,10 @@ function Cart() {
             onClick={() =>
               setCart((pre) => pre.filter((prod) => prod.id != item.id))
             }
-            icon={<Trash2 className="cursor-pointer hover:text-red-500 hover:scale-[1.1] transition duration-200 " />}
-            btnText='Delete'
+            icon={
+              <Trash2 className="cursor-pointer hover:text-red-500 hover:scale-[1.1] transition duration-200 " />
+            }
+            btnText="Delete"
           />
         </div>
       </div>
@@ -84,7 +94,7 @@ function Cart() {
     );
   return (
     <>
-    <title>My cart</title>
+      <title>My cart</title>
       {showMsg && (
         <Alert
           type="error"

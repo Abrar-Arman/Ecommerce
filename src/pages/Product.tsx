@@ -12,7 +12,7 @@ function Product() {
     <title>Product</title>
     <Container>
         <div className="text-[#504F4F] flex gap-2 pt-8 font-Prata ">
-            <Link to='/'><span className="hover">Home</span></Link>
+            <Link to='/'><span className="hover font-bold">Home</span></Link>
             <span><ArrowRight /></span>
             <span>All Products</span>
         </div>

@@ -1,17 +1,15 @@
 import { MoveUpRight } from "lucide-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 type TProductItemProps = {
   title: string;
   thumbnail: string;
-  rating: number;
   price: number;
   onSelectProduct:()=>void;
    product:Record<string , unknown>
 };
 
-function ProductItem({ title, thumbnail, rating, price,onSelectProduct , product}: TProductItemProps) {
+function ProductItem({ title, thumbnail,  price,onSelectProduct , product}: TProductItemProps) {
   return (
     <li className="shadow pb-4 hover:scale-[1.05] transition duration-200" onClick={onSelectProduct} >
       <div>

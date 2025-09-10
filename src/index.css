@@ -119,9 +119,11 @@
 }
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
-  background-color: #707070;
+  background-color: #9A9A9A;
   border-radius: 3px;
 }
+
+
 
 @layer base {
   * {
@@ -158,3 +160,19 @@
 @utility filter__reset {
   @apply flex items-center gap-2;
 }
+@utility checkout__form {
+  @apply flex flex-col gap-2;
+}
+
+@utility checkout__form__grid {
+  @apply w-full md:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
+}
+
+@utility checkout__form__label {
+  @apply text-sm md:text-lg text-[#707070] font-medium after:content-['*'] after:text-red-500;
+}
+
+@utility checkout__form__input {
+  @apply rounded-full w-full md:w-3/4 ;
+}
+

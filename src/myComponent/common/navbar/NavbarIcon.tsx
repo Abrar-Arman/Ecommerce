@@ -26,19 +26,7 @@ function NavbarIcon() {
           </TooltipContent>
         </Tooltip>
       </Link>
-      <Link to="/">
-        <Tooltip>
-          <TooltipTrigger>
-            <div>
-              <User size={26} className="hover" />
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Login</p>
-          </TooltipContent>
-        </Tooltip>
-      </Link>
-      <Link to="/cart">
+       <Link to="/cart">
         <Tooltip>
           <TooltipTrigger>
             <div className="relative">
@@ -51,6 +39,19 @@ function NavbarIcon() {
           </TooltipContent>
         </Tooltip>
       </Link>
+      <Link to="/">
+        <Tooltip>
+          <TooltipTrigger>
+            <div>
+              <User size={26} className="hover" />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Login</p>
+          </TooltipContent>
+        </Tooltip>
+      </Link>
+     
     </div>
   );
 }

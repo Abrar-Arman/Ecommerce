@@ -1,12 +1,12 @@
 import CartTitle from './CartTitle'
 import type {TCartItem} from '../../types/types.ts'
-import { Button } from '@/components/ui/button.tsx';
+import { Link } from 'react-router-dom';
 type TCartSummaryProps = {
   myCart: TCartItem[];
 };
 function CartSummary({myCart}:TCartSummaryProps) {
   const total:number=myCart.reduce((acc,item)=>acc+(item.price * (item.quntity ?? 1)),0).toFixed(3)
-  console.log(total,myCart)
+  console.log(total,myCart,'total')
   return (
     <>
     <div className='flex flex-col items-end gap-y-8  my-10 pr-10  '>
@@ -21,7 +21,7 @@ function CartSummary({myCart}:TCartSummaryProps) {
           </table>
     </div>
     <div >
-      <Button size={null} className='uppercase rounded-none text-base ml-auto block font-medium cursor-pointer py-3 px-4 '>Proceed to checkout</Button>
+      <Link to='/checkout' className='uppercase bg-black text-white w-64 rounded-none text-base ml-auto block font-medium cursor-pointer py-3 px-4 '>Proceed to checkout</Link>
     </div>
   </>
   )

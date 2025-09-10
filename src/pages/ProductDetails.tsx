@@ -1,4 +1,3 @@
-import BackToHome from "@/myComponent/common/BackToHome";
 import Container from "@/myComponent/common/Container";
 import ImageContainer from "@/myComponent/productDetails/ImageContainer";
 import ProductContent from "@/myComponent/productDetails/productContent";
@@ -13,13 +12,13 @@ function ProductDetails() {
     <Container>
       <div className="text-[#504F4F] flex gap-2 pt-8 font-Prata text-xs items-center sm:text-base">
         <Link to="/">
-          <span className="hover">Home</span>
+          <span className="hover font-bold">Home</span>
         </Link>
         <span>
           <ArrowRight />
         </span>
         <Link to="/products">
-          <span className="hover">All Products</span>
+          <span className="hover font-bold">All Products</span>
         </Link>
         <span>
           <ArrowRight />

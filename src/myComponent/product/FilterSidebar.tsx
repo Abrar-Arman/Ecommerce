@@ -14,7 +14,6 @@ import { useState } from "react";
 function FilterSidebar({ setSearchParams, searchParams }) {
   const {
     data: category,
-    isError,
     isPending,
   } = useFetchData(
     `${import.meta.env.VITE_API_URL}/products/categories`,

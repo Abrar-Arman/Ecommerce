@@ -32,8 +32,8 @@ src/
   - Add/remove items and adjust quantities.
   - Display total price.
   - Data persisted using **localStorage**.
-- **Wishlist**: Save favorite products and move them to the cart.
--**About**: Display Story and Features sections
+- **Wishlist**: Save favorite products and move them to the cart.    
+- **About**: Display Story and Features sections
 
 ## ⚡ Performance & Optimization
 
@@ -44,3 +44,22 @@ src/
 - **Sharable URLs**: Users can share filtered product views via unique URLs ```useSearchParam```.
 - **Pagination**: Products are paginated for easier browsing.
 - **Alerts & Dialogs**: Confirmation dialogs and alerts are shown when removing items or performing important actions.
+
+## 🆕 React 19 Features
+This project leverages **React 19** features to improve performance and developer experience:
+
+### ⚡ Automatic Memoization
+- React 19 automatically memoizes components and values where possible, reducing unnecessary re-renders.  
+- Improves performance **without manually using `useMemo` or `useCallback`**.  
+- Helps your UI stay fast and responsive, especially when rendering product lists or cart items.
+
+### 📝 Document Meta Support
+- Built-in support for managing page `<title>` and `<meta>` tags directly in components.  
+- Enables **dynamic meta updates per route**, improving SEO and social sharing experience.
+
+### 🛠 React Compiler
+- This project uses **React Compiler** for faster builds, enforce React rule, and better error overlays.  
+- To check that your code does not violate React rules, run:  
+  ```bash
+  npx react-compiler-healthcheck@latest
+
