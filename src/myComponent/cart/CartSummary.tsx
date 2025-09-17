@@ -5,7 +5,7 @@ type TCartSummaryProps = {
   myCart: TCartItem[];
 };
 function CartSummary({myCart}:TCartSummaryProps) {
-  const total:number=myCart.reduce((acc,item)=>acc+(item.price * (item.quntity ?? 1)),0).toFixed(3)
+  const total=myCart.reduce((acc,item)=>acc+(item.price * (item.quntity ?? 1)),0).toFixed(3)
   console.log(total,myCart,'total')
   return (
     <>

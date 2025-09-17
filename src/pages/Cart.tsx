@@ -1,26 +1,24 @@
-import { useCartContext } from "@/context/CardProvider";
 import Container from "@/myComponent/common/Container";
 import EmptyCart from "@/myComponent/common/cart_wishlist/Empty.tsx";
 import CartTitle from "@/myComponent/cart/CartTitle";
 import CartSummary from "@/myComponent/cart/CartSummary";
-import type { TCartItem } from "../types/types.ts";
 import { useState } from "react";
 import Alert from "@/myComponent/common/Alert.tsx";
 import ItemList from "@/myComponent/common/cart_wishlist/ItemList.tsx";
 import { useNavigate } from "react-router-dom";
 import DeleteModal from "@/myComponent/common/cart_wishlist/DeleteModal.tsx";
 import { Trash2 } from "lucide-react";
-
+import { useSelector, useDispatch } from 'react-redux'
+import { removeItem, updateQuntity as updateQuntityAction} from "../slices/cartSlice"
+import {RootState } from "../store"
 function Cart() {
-  const { data: cart, setData: setCart } = useCartContext() as {
-    data: TCartItem[];
-    setData: React.Dispatch<React.SetStateAction<TCartItem[]>>;
-  };
-  console.log(cart, "cart page/////");
+  const dispatch=useDispatch();
+  const cart=useSelector((state:RootState )=>state.cart);
+  console.log(cart,'state ///////////////////')
   const [showMsg, setShowMsg] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const updateQuntity = (s, qa) => {
+  const updateQuntity = (s, qa:number) => {
     if (qa > s.stock) {
       setShowMsg(true);
       return;
@@ -29,14 +27,7 @@ function Cart() {
       setShowMsg(true);
       return;
     }
-    
-    setCart(
-      cart.map((item) =>
-        item.id == s.id
-          ? { ...item, quntity: qa, stock: item.stock, myQuan: item.stock - qa }
-          : item
-      )
-    );
+    dispatch(updateQuntityAction({id:s.id,num:qa}));
   };
   const renderCartItem = (item) => (
     <li
@@ -74,7 +65,7 @@ function Cart() {
           <DeleteModal
             title="Are you sure you want to remove this item from your cart?"
             onClick={() =>
-              setCart((pre) => pre.filter((prod) => prod.id != item.id))
+              dispatch(removeItem(item.id))
             }
             icon={
               <Trash2 className="cursor-pointer hover:text-red-500 hover:scale-[1.1] transition duration-200 " />

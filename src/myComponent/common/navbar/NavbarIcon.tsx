@@ -5,12 +5,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Link } from "react-router-dom";
-import { useCartContext } from "@/context/CardProvider";
-import { useWishlistContext } from "@/context/WishlistProvider";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 function NavbarIcon() {
-  const { data: cart } = useCartContext();
-  const { data: wishlist } = useWishlistContext();
-  console.log(cart,'cart icons')
+  const cart = useSelector((state:RootState) => state.cart);
+  const wishlist = useSelector((state:RootState) => state.wishlist);
+
+  console.log(cart, "cart icons");
   return (
     <div className="text-[#323232] flex items-center gap-4 cursor-pointer ">
       <Link to="/wishlist">
@@ -26,7 +27,7 @@ function NavbarIcon() {
           </TooltipContent>
         </Tooltip>
       </Link>
-       <Link to="/cart">
+      <Link to="/cart">
         <Tooltip>
           <TooltipTrigger>
             <div className="relative">
@@ -51,7 +52,6 @@ function NavbarIcon() {
           </TooltipContent>
         </Tooltip>
       </Link>
-     
     </div>
   );
 }

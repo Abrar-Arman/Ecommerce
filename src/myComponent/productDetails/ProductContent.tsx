@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { useCartContext } from "@/context/CardProvider";
 import { Heart, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import Alert from "../common/Alert";
-import Spinner from "../common/Spinner";
 import { useNavigate } from "react-router-dom";
 import { useWishlistContext } from "@/context/WishlistProvider";
-
+import { useDispatch, useSelector } from "react-redux";
+import {addItem} from '../../slices/cartSlice'
+import {addItemToWishlist} from "../../slices/wishlistSlice"
+import {RootState } from '../../store'
 type TProductContentProps = {
   price: number;
   tags: string[];
@@ -25,9 +26,11 @@ function ProductContent({
   id,
   stock,
 }: TProductContentProps) {
-  const { data: cart, setData: setCart } = useCartContext();
-  const { data: wishlist, setData: setWishlist } = useWishlistContext();
-  console.log("wishlist //", wishlist);
+  const dispatch=useDispatch();
+  const  cart=useSelector((state:RootState )=>state.cart);
+  const  wishlist=useSelector((state:RootState )=>state.wishlist);
+
+  console.log(cart,'data //////////////// ///////////////////')
   const [msg, setShowMsg] = useState(false);
   const navigate = useNavigate();
   const exits = (arr) => {
@@ -40,9 +43,8 @@ function ProductContent({
   console.log(foundItemOnWishlist, "foundItemOnWishlist");
   const addToLocalStorage = (key: string) => {
     if (key == "cart") {
-      setCart([
-        ...cart,
-        {
+    dispatch(addItem(
+       {
           price,
           title,
           description,
@@ -51,10 +53,10 @@ function ProductContent({
           stock,
           quntity: 1,
           myQuan: stock - 1,
-        },
-      ]);
+        }
+    ))
     } else {
-      setWishlist([...wishlist, { price, title, description, img, id, stock }]);
+      dispatch(addItemToWishlist({ price, title, description, img, id, stock }))
     }
     setShowMsg(true);
   };

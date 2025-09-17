@@ -1,3 +1,6 @@
+
+import {ICartItem} from '../types/types'
+
 function setItem(key:string,value:Record<string,unknown>[] | []){
     try{
     localStorage.setItem(key,JSON.stringify(value))
@@ -6,7 +9,7 @@ function setItem(key:string,value:Record<string,unknown>[] | []){
     }
 }
 
-function getItem(key:string): undefined | Record<string,unknown>[]{
+function getItem(key:string): undefined | ICartItem[]{
     try{
       const val=localStorage.getItem(key)
       return val? JSON.parse(val):undefined

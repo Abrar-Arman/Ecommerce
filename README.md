@@ -1,8 +1,12 @@
-# E-Commerce 
+# E-Commerce  
 
 ## 📄 Project Overview
 
-This is a React-based e-commerce application where users can browse products, add them to a shopping cart or wishlist, and filter/search items. All data for cart and wishlist is stored locally using **localStorage**, making the app fully functional without a backend.
+This is a **React + Redux Toolkit-based e-commerce application** where users can browse products, add them to a shopping cart or wishlist, and filter/search items. All cart and wishlist data are stored locally using **localStorage**, allowing the app to function fully without a backend.
+
+Redux Toolkit is used for **global state management**, making it easy to handle the cart, wishlist, and other shared state efficiently.
+
+---
 
 ## 📂 Project Structure
 
@@ -10,18 +14,19 @@ This is a React-based e-commerce application where users can browse products, ad
 src/
 ├── assets/          # Static assets (images, icons, etc.)
 ├── components/      # Reusable UI components (Shadcn components)
-├── myComponents/    # Project-specific components built by combining my custom code with Shadcn UI components to create reusable, final components
+├── myComponents/    # Project-specific components built by combining custom code with Shadcn UI components
 ├── pages/           # Application pages and views
-├── layouts/         #Layout components for wrapping pages (header, footer)
+├── layouts/         # Layout components for wrapping pages (header, footer)
 ├── hooks/           # Custom React hooks for logic reuse
 ├── utils/           # Helper functions and utilities
 ├── types/           # TypeScript type definitions
 ├── my-routes/       # Application routes and route definitions
-├── context/         # React context providers for UI State Management
-├── constant/        # Static constant data (e.g., services, nav links, features)
+├── slices/          # Redux Toolkit slices for global state management (cart, wishlist)
+├── constant/        # Static constant data (services, nav links, features)
 ├── main.jsx         # Entry point
+├── store.ts         # Redux store setup 
 └── index.css        # Global Tailwind styles
-```
+
 
 ## ⚡ Key Features
 

@@ -1,46 +1,33 @@
-import { useCartContext } from "@/context/CardProvider";
-import { useWishlistContext } from "@/context/WishlistProvider";
 import CartTitle from "@/myComponent/cart/CartTitle";
 import DeleteModal from "@/myComponent/common/cart_wishlist/DeleteModal";
 import EmptyWishlist from "@/myComponent/common/cart_wishlist/Empty";
 import ItemList from "@/myComponent/common/cart_wishlist/ItemList";
 import Container from "@/myComponent/common/Container";
 import { ShoppingCart, Trash2 } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { RootState } from "../store";
+import { removeItemFromWishlist } from "../slices/wishlistSlice";
+import { addItem, updateQuntity } from "../slices/cartSlice";
 function Wishlist() {
-  const { data: wishlist, setData: setWishlist } = useWishlistContext();
-  const { data: cart, setData: setCart } = useCartContext();
-  console.log(cart, "cart");
+  const wishlist = useSelector((state: RootState) => state.wishlist);
+  const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(wishlist, "wishlist");
-  const removeFromWishlist = (id) => {
-    setWishlist((pre) => pre.filter((f) => f.id != id));
+  const removeFromWishlist = (id: number) => {
+    dispatch(removeItemFromWishlist(id));
   };
   const moveToCat = (item) => {
     const found = cart.find((c) => c.id === item.id);
-    console.log(found)
+    console.log(found);
     if (found) {
-      setCart((cur) =>
-        cur.map((prod) =>
-          prod.id == item.id
-            ? {
-                ...prod,
-                quntity: prod.quntity + 1,
-                myQuan: prod.stock - (prod.quntity + 1),
-              }
-            : prod
-        )
-      );
+      dispatch(updateQuntity({ id: found.id, num: found.quntity + 1 }));
     } else {
       console.log("not founed");
-      setCart((cur) => [
-        ...cur,
-        { ...item, quntity: 1, myQuan: item.stock - 1 },
-      ]);
+      dispatch(addItem({ ...item, quntity: 1, myQuan: item.stock - 1 }));
     }
-          removeFromWishlist(item.id);
-
+    removeFromWishlist(item.id);
   };
   const renderWishlistItem = (item) => (
     <li
@@ -67,7 +54,7 @@ function Wishlist() {
             title={`Are you sure you want to remove  ${item.title} from your wishlist?`}
             onClick={() => removeFromWishlist(item.id)}
             icon={<Trash2 className="cursor-pointer hover:text-red-500 " />}
-            btnText='Delete'
+            btnText="Delete"
           />
         </div>
       </div>
@@ -82,13 +69,13 @@ function Wishlist() {
     );
   return (
     <>
-    <title>My Wishlist</title>
-    <Container>
-      <div className="h-[70vh]">
-        <CartTitle first="My" last="Wishlist" />
-        <ItemList render={renderWishlistItem} data={wishlist} />
-      </div>
-    </Container>
+      <title>My Wishlist</title>
+      <Container>
+        <div className="h-[70vh]">
+          <CartTitle first="My" last="Wishlist" />
+          <ItemList render={renderWishlistItem} data={wishlist} />
+        </div>
+      </Container>
     </>
   );
 }
