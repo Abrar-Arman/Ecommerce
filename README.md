@@ -26,7 +26,7 @@ src/
 ├── main.jsx         # Entry point
 ├── store.ts         # Redux store setup 
 └── index.css        # Global Tailwind styles
-
+```
 
 ## ⚡ Key Features
 
