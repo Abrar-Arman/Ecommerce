@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getItem, setItem } from "../utils/localstorage/localStorage";
+import { getItem, setItem, removeItemFromLocalStorage } from "../utils/localstorage/localStorage";
 import { ICartItem } from "../types/types";
 interface ICartItemUpdate {
   id: number;
@@ -22,7 +22,7 @@ const cartSlice = createSlice({
         if (state.length > 0) {
           setItem("cart", state);
         } else {
-          localStorage.removeItem("cart");
+          removeItemFromLocalStorage("cart");
         }
       }
     },

@@ -1,4 +1,3 @@
-
 import {ICartItem} from '../types/types'
 
 function setItem(key:string,value:Record<string,unknown>[] | []){
@@ -18,5 +17,8 @@ function getItem(key:string): undefined | ICartItem[]{
      console.log('error happen',err)
     }
 }
+function removeItemFromLocalStorage(key: string){
+   localStorage.removeItem(key)
+}
 
-export {setItem,getItem}
+export {setItem,getItem,removeItemFromLocalStorage}
